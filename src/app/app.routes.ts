@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { AppShell } from '@core/layout/app-shell/app-shell';
+import { AppShell } from './layout/app-shell/app-shell';
 
 export const routes: Routes = [
     {
