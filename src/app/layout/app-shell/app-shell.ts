@@ -7,7 +7,6 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-app-shell',
   imports: [Sidebar, Topbar, RouterOutlet],
   templateUrl: './app-shell.html',
-  styleUrl: './app-shell.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './app-shell.scss'
 })
 export class AppShell {}
