@@ -1,3 +1,64 @@
 <app-ncs-card class="fixed left-4 top-4 bottom-4" [class.w-[264px]]="!collapsed()" [class.w-[84px]]="collapsed()">
 
+    <a routerLink="/" class="mb-8 flex justify-center items-center gap-1 rounded-2xl text-slate-950 no-underline"
+        aria-label="Go to home">
+        <div
+            class="grid h-12 w-12 shrink-0">
+            <img src="../../../assets/ng-craft-logo.png" alt="logo"/>
+        </div>
+
+        <div class="min-w-0">
+            <div class="text-[20px] font-semibold leading-6 tracking-[-0.03em]">
+                NgCraft <span class="text-blue-700">Studio</span>
+            </div>
+        </div>
+    </a>
+
+    <app-ncs-card class="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto" aria-label="Sidebar navigation">
+        <section class="grid gap-2">
+            <p class="px-3 text-xs font-bold uppercase tracking-wide text-slate-400">
+                Components
+            </p>
+
+            @for (item of componentItems; track item.route) {
+            <a [routerLink]="item.route" routerLinkActive="is-active" class="sidebar-link">
+                <ng-icon [name]="item.icon" class="w-5 h-5" />
+                <span class="truncate">{{ item.label }}</span>
+            </a>
+            }
+        </section>
+
+        <section class="grid gap-2 border-t border-slate-200 pt-5">
+            <p class="px-3 text-xs font-bold uppercase tracking-wide text-slate-400">
+                Resources
+            </p>
+
+            <!-- @for (item of resourceItems; track item.route) {
+            <a [routerLink]="item.route" routerLinkActive="is-active" class="sidebar-link">
+                <mat-icon class="sidebar-icon">{{ item.icon }}</mat-icon>
+                <span class="truncate">{{ item.label }}</span>
+            </a>
+            } -->
+        </section>
+    </app-ncs-card>
+
+    <div class="mt-5 rounded-[22px] border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-5">
+        <div class="mb-4 grid h-11 w-11 place-items-center rounded-2xl bg-white text-blue-700 shadow-sm">
+            <!-- <mat-icon>diamond</mat-icon> -->
+        </div>
+
+        <h3 class="text-base font-black text-slate-950">
+            Pro Plan
+        </h3>
+
+        <p class="mt-2 text-sm leading-6 text-slate-500">
+            Unlock all components and premium features.
+        </p>
+
+        <button type="button"
+            class="mt-5 flex h-12 w-full items-center justify-center gap-2 rounded-2xl border border-blue-200 bg-white text-sm font-bold text-blue-700 transition hover:border-blue-700 hover:bg-blue-700 hover:text-white">
+            Upgrade Now
+            <!-- <mat-icon class="!h-5 !w-5 !text-xl">arrow_forward</mat-icon> -->
+        </button>
+    </div>
 </app-ncs-card>
