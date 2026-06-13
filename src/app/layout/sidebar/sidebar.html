@@ -23,6 +23,7 @@
             @for (item of componentItems; track item.route) {
             <a [routerLink]="item.route" routerLinkActive="is-active" class="sidebar-link">
                 <!-- <ng-icon [name]="item.icon" class="w-5 h-5" /> -->
+                 <svg [lucideIcon]="item.icon"></svg>
                 <span class="truncate">{{ item.label }}</span>
             </a>
             }

@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { NcsCard } from '../../shared/ncs-card/ncs-card';
 import { RouterLink } from '@angular/router';
+import { LucideDynamicIcon, LucideCircleCheck, LucideCircleX } from '@lucide/angular';
 
 type SidebarItem = {
   label: string;
@@ -11,7 +12,7 @@ type SidebarItem = {
 
 @Component({
   selector: 'app-sidebar',
-  imports: [MatCardModule, NcsCard, RouterLink],
+  imports: [MatCardModule, NcsCard, RouterLink, LucideDynamicIcon],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss'
 })
