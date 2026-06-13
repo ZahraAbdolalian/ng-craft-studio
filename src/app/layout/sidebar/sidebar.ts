@@ -2,8 +2,6 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { NcsCard } from '../../shared/ncs-card/ncs-card';
 import { RouterLink } from '@angular/router';
-import { NgIcon, provideIcons } from '@ng-icons/core';
-import { heroSquares2x2, heroCodeBracket, heroSwatch, heroRocketLaunch, heroCog6Tooth, heroRectangleGroup, heroCursorArrowRays, heroWindow, heroBellAlert, heroListBullet, heroArrowRight } from '@ng-icons/heroicons/outline';
 
 type SidebarItem = {
   label: string;
@@ -13,15 +11,9 @@ type SidebarItem = {
 
 @Component({
   selector: 'app-sidebar',
-  imports: [MatCardModule, NcsCard, RouterLink, NgIcon],
+  imports: [MatCardModule, NcsCard, RouterLink],
   templateUrl: './sidebar.html',
-  styleUrl: './sidebar.scss',
-  providers: [
-    provideIcons({
-      heroSquares2x2, heroCodeBracket, heroSwatch, heroRocketLaunch, heroCog6Tooth, heroRectangleGroup, heroCursorArrowRays,
-      heroWindow, heroBellAlert, heroListBullet, heroArrowRight,
-    })
-  ]
+  styleUrl: './sidebar.scss'
 })
 export class Sidebar {
   readonly collapsed = signal(false);
