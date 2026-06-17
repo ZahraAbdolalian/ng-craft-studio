@@ -7,22 +7,21 @@
 
       <div class="min-w-0">
         <div class="text-[21px] font-semibold leading-6 tracking-[-0.04em]">
-          NgCraft <span class="text-blue-700">Studio</span>
+          NgCraft <span class="text-[#165144]">Studio</span>
         </div>
       </div>
     </a>
 
     <app-ncs-card class="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto" aria-label="Sidebar navigation">
       <section class="grid gap-2">
-        <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">
+        <p class="text-xs p-1.5 font-semibold uppercase tracking-wide text-slate-500">
           Components
         </p>
 
         @for (item of componentItems; track item.route) {
-        <a [routerLink]="item.route" routerLinkActive="bg-blue-50 text-blue-700 shadow-[inset_0_0_0_1px_#dbeafe]"
-          #componentLink="routerLinkActive"
-          class="group flex h-11 items-center gap-3 rounded-xl font-semibold text-slate-700 no-underline transition duration-150 hover:bg-slate-50 hover:text-blue-700">
-          <svg [lucideIcon]="item.icon" class="h-5 w-5 shrink-0 text-current"></svg>
+        <a ncsButton variant="choice" size="md" align="start" [block]="true" [routerLink]="item.route"
+          routerLinkActive="is-active" #componentLink="routerLinkActive">
+          <svg [lucideIcon]="item.icon" class="h-5 w-5 shrink-0"></svg>
 
           <span class="truncate">{{ item.label }}</span>
 
@@ -39,9 +38,8 @@
         </p>
 
         @for (item of resourceItems; track item.route) {
-        <a [routerLink]="item.route" routerLinkActive="bg-blue-50 text-blue-700 shadow-[inset_0_0_0_1px_#dbeafe]"
-          #resourceLink="routerLinkActive"
-          class="group flex h-11 items-center gap-3 rounded-xl text-[15px] font-semibold text-slate-700 no-underline transition duration-150 hover:bg-slate-50 hover:text-blue-700">
+        <a ncsButton variant="choice" size="md" align="start" [block]="true" routerLinkActive="is-active"
+          #resourceLink="routerLinkActive" [routerLink]="item.route">
           <svg [lucideIcon]="item.icon" class="h-5 w-5 shrink-0 text-current"></svg>
 
           <span class="truncate">{{ item.label }}</span>

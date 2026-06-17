@@ -7,6 +7,7 @@ import {
   LucidePanelTopDashed, LucideSettings, LucideSquareArrowRightEnter, LucideSquareMousePointer,
   LucideTextCursorInput,
 } from '@lucide/angular';
+import { NcsButton } from '../../shared/ncs-button/ncs-button.directive';
 
 type SidebarItem = {
   label: string;
@@ -16,7 +17,7 @@ type SidebarItem = {
 
 @Component({
   selector: 'app-sidebar',
-  imports: [MatCardModule, NcsCard, RouterLink, RouterLinkActive, LucideDynamicIcon],
+  imports: [MatCardModule, NcsCard, RouterLink, RouterLinkActive, LucideDynamicIcon, NcsButton],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.scss'
 })
