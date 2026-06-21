@@ -1,13 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { NcsCard } from '../../shared/ncs-card/ncs-card';
+import { NcsCard } from '../../shared/components/ncs-card/ncs-card';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import {
   LucideCaptions, LucideDynamicIcon, LucideIcon, LucideLayoutDashboard, LucideMessageCircle, LucidePalette, LucidePanelTop,
   LucidePanelTopDashed, LucideSettings, LucideSquareArrowRightEnter, LucideSquareMousePointer,
   LucideTextCursorInput,
 } from '@lucide/angular';
-import { NcsButton } from '../../shared/ncs-button/ncs-button.directive';
+import { NcsButton } from '../../shared/components/ncs-button/ncs-button.directive';
 
 type SidebarItem = {
   label: string;

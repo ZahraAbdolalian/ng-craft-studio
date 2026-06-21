@@ -1,0 +1,14 @@
+<section class="grid h-full grid-cols-[330px_minmax(0,1fr)_430px] gap-4">
+    <aside class="min-h-0">
+        <ng-content select="[customize]" />
+    </aside>
+
+    <main class="grid min-h-0 gap-4">
+        <ng-content select="[preview]" />
+        <ng-content select="[states]" />
+    </main>
+
+    <aside class="min-h-0">
+        <ng-content select="[code-output]" />
+    </aside>
+</section>

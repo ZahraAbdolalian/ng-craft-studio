@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { NcsCard } from '../../shared/ncs-card/ncs-card';
+import { NcsCard } from '../../shared/components/ncs-card/ncs-card';
 import { LucideBookmark, LucideChevronDown, LucideCodeXml, LucideFolderClosed, LucideMoon, LucideSearch, LucideSunMedium } from '@lucide/angular';
-import { NcsButton } from '../../shared/ncs-button/ncs-button.directive';
+import { NcsButton } from '../../shared/components/ncs-button/ncs-button.directive';
 
 @Component({
   selector: 'app-topbar',
