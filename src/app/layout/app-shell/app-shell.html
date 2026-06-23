@@ -1,10 +1,13 @@
-<div class="min-h-screen bg-[#f8f9fe]">
+<div class="min-h-screen bg-[#f8fafc] text-slate-950">
     <app-sidebar />
-    <div class="min-h-screen pl-74">
-        <app-topbar />
 
-        <main class="p-6">
-            <router-outlet />
-        </main>
+    <div class="min-h-screen pl-76 pr-4 py-4">
+        <div class="flex min-h-[calc(100vh-32px)] flex-col gap-4">
+            <app-topbar />
+
+            <main class="min-h-0 flex-1">
+                <router-outlet />
+            </main>
+        </div>
     </div>
 </div>

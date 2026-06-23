@@ -1,0 +1,46 @@
+<app-ncs-card>
+
+    <div class="mb-5 flex items-center justify-between border-b border-slate-200 pb-4">
+        <div class="flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-pencil-sparkles-icon lucide-pencil-sparkles">
+                <path d="M10 3H8" />
+                <path d="m15.007 5.008 3.987 3.986" />
+                <path d="M20 15v4" />
+                <path
+                    d="M21.174 6.813a2.82 2.82 0 0 0-3.986-3.987L3.842 16.175a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
+                <path d="M22 17h-4" />
+                <path d="M4 5v4" />
+                <path d="M6 7H2" />
+                <path d="M9 2v2" />
+            </svg>
+
+            <h2 class="text-lg font-semibold tracking-[-0.03em] text-slate-950">
+                Customize
+            </h2>
+        </div>
+
+        <button ncsButton variant="ghost" size="icon-md" type="button" aria-label="Reset customize options"
+            (click)="reset()">
+            <svg lucideRotateCcw></svg>
+        </button>
+    </div>
+
+    <div class="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto pr-1">
+        <section>
+            <p class="mb-3 text-sm font-semibold text-slate-900">
+                Output Mode
+            </p>
+
+            <div class="grid grid-cols-3 gap-2">
+                @for (mode of outputModes; track mode.value) {
+                <button ncsButton variant="choice" size="sm" type="button" [active]="config().outputMode === mode.value"
+                    (click)="setOutputMode(mode.value)">
+                    {{ mode.label }}
+                </button>
+                }
+            </div>
+        </section>
+    </div>
+</app-ncs-card>
