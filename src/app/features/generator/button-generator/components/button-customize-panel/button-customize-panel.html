@@ -42,5 +42,52 @@
                 }
             </div>
         </section>
+
+        <section>
+            <p class="mb-3 text-sm font-semibold text-slate-900">
+                Variant
+            </p>
+
+            <div class="grid grid-cols-5 gap-2">
+                @for (variant of variants; track variant.value) {
+                <button ncsButton variant="choice" type="button" [active]="config().variant === variant.value"
+                    (click)="setVariant(variant.value)">
+                    {{ variant.label }}
+                </button>
+                }
+            </div>
+        </section>
+
+        <section>
+            <p class="mb-3 text-sm font-semibold text-slate-900">
+                Size
+            </p>
+
+            <div class="grid grid-cols-5 gap-2">
+                @for (size of sizes; track size.value) {
+                <button ncsButton variant="choice" [active]="config().size == size.value" (click)="setSize(size.value)">
+                    {{ size.label }}
+                </button>
+                }
+            </div>
+        </section>
+
+        <section>
+            <p class="text-sm font-semibold text-slate-900">
+                Radius
+            </p>
+
+            <div class="flex items-center justify-between gap-3">
+                <input type="range" min="0" max="28" step="1" [value]="config().radius"
+                    class="h-2 w-full cursor-pointer accent-blue-800"
+                    (input)="setRadius($any($event.target).valueAsNumber)" />
+
+                <span
+                    class="grid h-10 min-w-14 place-items-center rounded-xl border border-slate-200 bg-white px-3 text-sm font-medium text-slate-700">
+                    {{ config().radius }}px
+                </span>
+            </div>
+
+        </section>
     </div>
 </app-ncs-card>
