@@ -1,2 +1,6 @@
 @import 'tailwindcss';
 @import './app/shared/components/ncs-button/ncs-button.scss';
+
+@utility sub-title {
+    @apply mb-3 text-sm font-semibold;
+}

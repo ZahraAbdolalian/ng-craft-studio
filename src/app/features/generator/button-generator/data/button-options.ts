@@ -12,7 +12,7 @@ type Option<T extends string> = {
 
 export const defaultButtonConfig = {
     outputMode: 'angular',
-    variant: 'solid',
+    variant: 'primary',
     size: 'md',
     radius: 12,
     iconLeft: 'rocket',
@@ -29,8 +29,8 @@ export const buttonOutputModes: Option<ButtonOutputMode>[] = [
 ];
 
 export const buttonVariants: Option<ButtonVariant>[] = [
-    { label: 'Solid', value: 'solid' },
-    { label: 'Outline', value: 'outline' },
+    { label: 'Solid', value: 'primary' },
+    { label: 'Outline', value: 'secondary' },
     { label: 'Soft', value: 'soft' },
     { label: 'Ghost', value: 'ghost' },
     { label: 'Link', value: 'link' },

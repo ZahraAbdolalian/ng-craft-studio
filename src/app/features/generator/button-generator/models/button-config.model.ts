@@ -1,5 +1,5 @@
 export type ButtonOutputMode = 'angular' | 'tailwind' | 'material';
-export type ButtonVariant = 'solid' | 'outline' | 'soft' | 'ghost' | 'link';
+export type ButtonVariant = 'primary' | 'secondary' | 'soft' | 'ghost' | 'link';
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type ButtonIcon = 'rocket' | 'sparkles' | 'code' | 'none';
 

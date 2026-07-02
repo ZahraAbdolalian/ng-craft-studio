@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { LucideChevronDown, LucideCode2, LucideIcon, LucideRefreshCw, LucideRocket, LucideRotateCcw, LucideSparkles, LucideX } from '@lucide/angular';
+import { LucideChevronDown, LucideCode2, LucideDynamicIcon, LucideIcon, LucideRefreshCw, LucideRocket, LucideRotateCcw, LucideSparkles, LucideX } from '@lucide/angular';
 import { NcsCard } from '../../../../../shared/components/ncs-card/ncs-card';
 import { ButtonBooleanKey, ButtonConfig, ButtonIcon, ButtonOutputMode, ButtonSize, ButtonVariant } from '../../models/button-config.model';
 import { buttonIcons, buttonOutputModes, buttonSizes, buttonVariants, defaultButtonConfig } from '../../data/button-options';
@@ -7,7 +7,7 @@ import { NcsButton } from '../../../../../shared/components/ncs-button/ncs-butto
 
 @Component({
   selector: 'app-button-customize-panel',
-  imports: [NcsCard, LucideRotateCcw, NcsButton],
+  imports: [NcsCard, LucideRotateCcw, NcsButton, LucideDynamicIcon, LucideX, LucideChevronDown],
   templateUrl: './button-customize-panel.html'
 })
 export class ButtonCustomizePanel {
@@ -71,4 +71,5 @@ export class ButtonCustomizePanel {
       ...patch,
     });
   }
+
 }

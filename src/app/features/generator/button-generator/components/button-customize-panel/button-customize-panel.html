@@ -16,9 +16,7 @@
                 <path d="M9 2v2" />
             </svg>
 
-            <h2 class="text-lg font-semibold tracking-[-0.03em] text-slate-950">
-                Customize
-            </h2>
+            <h2 class="text-lg font-semibold tracking-[-0.03em]"> Customize </h2>
         </div>
 
         <button ncsButton variant="ghost" size="icon-md" type="button" aria-label="Reset customize options"
@@ -29,9 +27,7 @@
 
     <div class="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto pr-1">
         <section>
-            <p class="mb-3 text-sm font-semibold text-slate-900">
-                Output Mode
-            </p>
+            <h3 class="sub-title"> Output Mode </h3>
 
             <div class="grid grid-cols-3 gap-2">
                 @for (mode of outputModes; track mode.value) {
@@ -44,9 +40,7 @@
         </section>
 
         <section>
-            <p class="mb-3 text-sm font-semibold text-slate-900">
-                Variant
-            </p>
+            <h3 class="sub-title"> Variant </h3>
 
             <div class="grid grid-cols-5 gap-2">
                 @for (variant of variants; track variant.value) {
@@ -59,9 +53,7 @@
         </section>
 
         <section>
-            <p class="mb-3 text-sm font-semibold text-slate-900">
-                Size
-            </p>
+            <p class="sub-title"> Size </p>
 
             <div class="grid grid-cols-5 gap-2">
                 @for (size of sizes; track size.value) {
@@ -73,9 +65,7 @@
         </section>
 
         <section>
-            <p class="text-sm font-semibold text-slate-900">
-                Radius
-            </p>
+            <h3 class="sub-title"> Radius </h3>
 
             <div class="flex items-center justify-between gap-3">
                 <input type="range" min="0" max="28" step="1" [value]="config().radius"
@@ -88,6 +78,82 @@
                 </span>
             </div>
 
+        </section>
+
+        <section>
+            <h3 class="sub-title"> Icon Left </h3>
+
+            <div class="flex h-12 items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 shadow-sm">
+                @if (iconMap[config().iconLeft]) {
+                <svg [lucideIcon]="iconMap[config().iconLeft]!" class="h-5 w-5 shrink-0 text-blue-950"></svg>
+                }
+
+                <select
+                    class="h-full min-w-0 flex-1 appearance-none border-0 bg-transparent text-sm font-medium text-slate-700 outline-none"
+                    [value]="config().iconLeft" (change)="setIconLeft($any($event.target).value)">
+                    @for (icon of icons; track icon.value) {
+                    <option [value]="icon.value">
+                        {{ icon.label }}
+                    </option>
+                    }
+                </select>
+
+                @if (config().iconLeft !== 'none') {
+                <button ncsButton variant="ghost" size="icon-sm" type="button" aria-label="Clear icon"
+                    (click)="setIconLeft('none')">
+                    <svg lucideX class="h-4 w-4"></svg>
+                </button>
+                }
+
+                <svg lucideChevronDown class="h-4 w-4 text-slate-500"></svg>
+            </div>
+        </section>
+
+        <section class="grid gap-4">
+            <div class="flex items-center justify-between">
+                <h3 class="sub-title">Loading</h3>
+
+                <button type="button" class="relative h-6 w-11 rounded-full bg-slate-200 transition"
+                    [class.bg-blue-950]="config().loading" (click)="toggle('loading')" aria-label="Toggle loading">
+                    <span class="absolute left-1 top-1 h-4 w-4 rounded-full bg-white shadow transition"
+                        [class.translate-x-5]="config().loading"></span>
+                </button>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <span class="text-sm font-semibold text-slate-900">Disabled</span>
+
+                <button type="button" class="relative h-6 w-11 rounded-full bg-slate-200 transition"
+                    [class.bg-blue-950]="config().disabled" (click)="toggle('disabled')" aria-label="Toggle disabled">
+                    <span class="absolute left-1 top-1 h-4 w-4 rounded-full bg-white shadow transition"
+                        [class.translate-x-5]="config().disabled"></span>
+                </button>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <h3 class="sub-title">Full Width</h3>
+
+                <button type="button" class="relative h-6 w-11 rounded-full bg-slate-200 transition"
+                    [class.bg-blue-950]="config().fullWidth" (click)="toggle('fullWidth')"
+                    aria-label="Toggle full width">
+                    <span class="absolute left-1 top-1 h-4 w-4 rounded-full bg-white shadow transition"
+                        [class.translate-x-5]="config().fullWidth"></span>
+                </button>
+            </div>
+        </section>
+
+        <section>
+            <div class="mb-3 flex items-center justify-between">
+                <h3 class="sub-title"> Label </h3>
+
+                <span class="text-xs font-medium text-slate-400">
+                    {{ config().label.length }}/30
+                </span>
+            </div>
+
+            <input type="text" maxlength="30" [value]="config().label"
+                class="h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-blue-300 focus:ring-4 focus:ring-blue-100"
+                placeholder="Button label" (input)="setLabel($any($event.target).value)" />
         </section>
     </div>
 </app-ncs-card>

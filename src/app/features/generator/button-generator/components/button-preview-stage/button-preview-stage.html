@@ -1,0 +1,49 @@
+<app-ncs-card class="min-h-130">
+
+    <div class="mb-4 flex items-center justify-between">
+        <h2 class="text-lg font-semibold tracking-[-0.03em]"> Preview Stage </h2>
+
+        <div class="flex items-center gap-2">
+            <button ncsButton variant="choice" size="sm" type="button" [active]="selectedDevice() === 'desktop'"
+                (click)="setDevice('desktop')">
+                <svg lucideMonitor class="h-4 w-4"></svg>
+                @if (selectedDevice() === 'desktop') { Desktop }
+            </button>
+
+            <button ncsButton variant="choice" size="sm" type="button" aria-label="Tablet preview"
+                [active]="selectedDevice() === 'tablet'" (click)="setDevice('tablet')">
+                <svg lucideTablet class="h-4 w-4"></svg>
+                @if (selectedDevice() === 'tablet') { Tablet }
+            </button>
+
+            <button ncsButton variant="choice" size="sm" type="button" aria-label="Mobile preview"
+                [active]="selectedDevice() === 'mobile'" (click)="setDevice('mobile')">
+                <svg lucideSmartphone class="h-4 w-4"></svg>
+                @if (selectedDevice() === 'mobile') { Mobile }
+            </button>
+        </div>
+
+    </div>
+    <div
+        class="relative flex min-h-87.5 flex-1 items-center justify-center overflow-hidden rounded-[20px] border border-slate-200 bg-white">
+        <div class="preview-grid absolute inset-0"></div>
+
+        <div class="relative flex min-h-55 items-center justify-center transition-all duration-300"
+            [class]="stageWidthClass()">
+            <button ncsButton type="button" class="preview-button" [attr.data-variant]="config().variant"
+                [attr.data-size]="config().size" [attr.data-full]="config().fullWidth ? 'true' : null"
+                [attr.data-loading]="config().loading ? 'true' : null" [style.border-radius.px]="config().radius"
+                [disabled]="config().disabled || config().loading">
+                @if (config().loading) {
+                <span class="preview-spinner"></span>
+                } @else if (previewIcon()) {
+                <svg [lucideIcon]="previewIcon()!" class="h-5 w-5 shrink-0"></svg>
+                }
+
+                <span class="truncate">
+                    {{ config().label }}
+                </span>
+            </button>
+        </div>
+    </div>
+</app-ncs-card>
