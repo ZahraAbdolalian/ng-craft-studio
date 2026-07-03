@@ -17,7 +17,6 @@ type PreviewDevice = 'desktop' | 'tablet' | 'mobile';
     justify-content: center;
     gap: 10px;
     max-width: 100%;
-    border: 1px solid transparent;
     font-weight: 700;
     transition:
       transform 160ms ease,

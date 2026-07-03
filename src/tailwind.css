@@ -4,3 +4,7 @@
 @utility sub-title {
     @apply mb-3 text-sm font-semibold;
 }
+
+@utility title {
+    @apply text-lg font-semibold tracking-[-0.03em];
+}

@@ -1,6 +1,6 @@
 import { Directive, HostListener, input } from "@angular/core";
 
-type NcsButtonVariant = 'primary' | 'secondary' | 'soft' | 'ghost' | 'choice';
+type NcsButtonVariant = 'primary' | 'secondary' | 'soft' | 'ghost' | 'choice' | 'link';
 type NcsButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'icon-sm' | 'icon-md' | 'icon-lg';
 type NcsButtonAlign = 'center' | 'start' | 'between';
 

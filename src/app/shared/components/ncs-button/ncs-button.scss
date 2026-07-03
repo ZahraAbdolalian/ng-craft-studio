@@ -50,11 +50,11 @@
   }
 
   .ncs-button[data-variant='secondary'] {
-    @apply border-slate-200 bg-white text-slate-800 shadow-sm;
+    @apply bg-white text-[#0b1f4d] border border-[#bfdbfe];
   }
 
   .ncs-button[data-variant='secondary']:hover {
-    @apply border-blue-200 text-blue-950 shadow-md;
+    @apply bg-[#eff6ff] border-[#2563eb];
   }
 
   .ncs-button[data-variant='soft'] {
@@ -79,6 +79,14 @@
 
   .ncs-button[data-variant='choice']:hover {
     @apply bg-[#edf3fd] border-blue-200 text-[#366ff8];
+  }
+
+  .ncs-button[data-variant='link'] {
+    @apply h-auto p-0 bg-transparent text-[#1d4ed8] border-transparent shadow-none;
+  }
+
+  .ncs-button[data-variant='link']:hover {
+    @apply text-[#0b1f4d] underline;
   }
 
   .ncs-button[data-active='true'][data-variant='choice'],
