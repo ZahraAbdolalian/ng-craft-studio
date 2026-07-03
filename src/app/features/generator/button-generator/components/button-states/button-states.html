@@ -1,0 +1,102 @@
+<app-ncs-card>
+    <h2 class="title">States & Variants</h2>
+
+    <app-ncs-tabs class="mt-5" [items]="tabs" [value]="activeTab()" (valueChange)="activeTab.set($event)"
+        variant="underline" size="md" align="stretch" ariaLabel="Button preview sections" />
+
+    <div class="flex min-h-[140px] flex-1 items-center">
+        @switch (activeTab()) {
+        @case ('states') {
+        <div class="w-full flex flex-wrap gap-4">
+            @for (item of stateItems; track item.state) {
+            <div class="flex flex-col items-center gap-4">
+                <p class="text-sm font-semibold text-slate-700">
+                    {{ item.label }}
+                </p>
+
+                <button ncsButton type="button" variant="primary" size="xs" [attr.data-state]="item.state"
+                    [style.border-radius.px]="config().radius"
+                    [disabled]="item.state === 'disabled' || item.state === 'loading'">
+                    @if (item.state === 'loading') {
+                    <svg lucideLoaderCircle class="h-4 w-4 shrink-0 animate-spin"></svg>
+                    <span>Loading</span>
+                    } @else {
+                    <svg lucideRocket class="h-4 w-4 shrink-0"></svg>
+                    <span>Button</span>
+                    }
+                </button>
+            </div>
+            }
+        </div>
+        }
+
+        @case ('variants') {
+        <div class="flex flex-wrap w-full gap-4">
+            @for (item of variantItems; track item.variant) {
+            <div class="flex flex-col items-center gap-4">
+                <p class="text-sm font-semibold text-slate-700">
+                    {{ item.label }}
+                </p>
+
+                <button ncsButton type="button" [variant]="item.variant" size="xs"
+                    [style.border-radius.px]="config().radius">
+                    @if (item.variant !== 'link') {
+                    <svg lucideRocket class="h-4 w-4 shrink-0"></svg>
+                    }
+
+                    <span>Button</span>
+                </button>
+            </div>
+            }
+        </div>
+        }
+
+        @case ('sizes') {
+        <div class="flex flex-wrap w-full items-end gap-4">
+            @for (item of sizeItems; track item.size) {
+            <div class="flex flex-col items-center gap-4">
+                <p class="text-sm font-semibold text-slate-700">
+                    {{ item.label }}
+                </p>
+
+                <button ncsButton type="button" variant="primary" [size]="item.size"
+                    [style.border-radius.px]="config().radius">
+                    <svg lucideRocket class="h-4 w-4 shrink-0"></svg>
+                    <span>Button</span>
+                </button>
+            </div>
+            }
+        </div>
+        }
+
+        @case ('shapes') {
+        <div class="flex flex-wrap w-full gap-4">
+            @for (item of shapeItems; track item.label) {
+            <div class="flex flex-col items-center gap-4">
+                <p class="text-sm font-semibold text-slate-700">
+                    {{ item.label }}
+                </p>
+
+                <button ncsButton type="button" variant="primary" [class.!h-14]="item.circle"
+                    [class.!w-14]="item.circle" [class.!px-0]="item.circle" [style.border-radius.px]="item.radius">
+                    <svg lucideRocket class="h-5 w-5 shrink-0"></svg>
+
+                    @if (!item.circle) {
+                    <span class="sr-only">Button</span>
+                    }
+                </button>
+            </div>
+            }
+        </div>
+        }
+        }
+    </div>
+
+    <div class="mt-4 flex justify-center gap-2">
+        @for (tab of tabs; track tab.value) {
+        <button type="button" class="h-2.5 w-2.5 rounded-full transition"
+            [class.bg-blue-700]="activeTab() === tab.value" [class.bg-slate-300]="activeTab() !== tab.value"
+            [attr.aria-label]="'Show ' + tab.label" (click)="setTab(tab.value)"></button>
+        }
+    </div>
+</app-ncs-card>

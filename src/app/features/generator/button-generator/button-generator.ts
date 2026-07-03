@@ -4,10 +4,11 @@ import { ButtonCustomizePanel } from './components/button-customize-panel/button
 import { defaultButtonConfig } from './data/button-options';
 import { ButtonConfig } from './models/button-config.model';
 import { ButtonPreviewStage } from './components/button-preview-stage/button-preview-stage';
+import { ButtonStates } from "./components/button-states/button-states";
 
 @Component({
   selector: 'app-button-generator',
-  imports: [GeneratorPageLayout, ButtonCustomizePanel, ButtonPreviewStage],
+  imports: [GeneratorPageLayout, ButtonCustomizePanel, ButtonPreviewStage, ButtonStates],
   templateUrl: './button-generator.html',
   styleUrl: './button-generator.scss',
 })
