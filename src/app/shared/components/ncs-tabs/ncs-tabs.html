@@ -1,0 +1,18 @@
+<div class="ncs-tabs" role="tablist" [attr.aria-label]="ariaLabel()" [attr.data-variant]="variant()"
+    [attr.data-size]="size()" [attr.data-align]="align()">
+    @for (item of items(); track item.value) {
+    <button type="button" role="tab" class="ncs-tab" [class.is-active]="isActive(item)" [disabled]="item.disabled"
+        [attr.aria-selected]="isActive(item)" [attr.aria-disabled]="item.disabled ? 'true' : null"
+        (click)="selectTab(item)">
+        <span class="truncate">
+            {{ item.label }}
+        </span>
+
+        @if (item.badge !== undefined && item.badge !== null) {
+        <span class="ncs-tab-badge">
+            {{ item.badge }}
+        </span>
+        }
+    </button>
+    }
+</div>
