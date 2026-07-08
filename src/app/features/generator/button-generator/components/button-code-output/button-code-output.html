@@ -1,0 +1,35 @@
+<app-ncs-card>
+    <div class="mb-5 flex items-center justify-between border-b border-slate-200 pb-4">
+        <div class="flex items-center gap-3">
+            <h2 class="title"> Code Output </h2>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <button ncsButton variant="ghost" size="icon-md" type="button" aria-label="Code settings">
+                <svg lucideSettings />
+            </button>
+            <button ncsButton variant="ghost" size="icon-md" type="button" aria-label="Code settings"
+                (click)="copyCurrentCode()">
+                <svg lucideCopy />
+            </button>
+        </div>
+    </div>
+
+    <app-ncs-tabs [items]="tabs" value="activeTab()" (valueChange)="setActiveTab($event)" variant="underline" size="md"
+        align="stretch" ariaLabel="Code output tabs" />
+    <div class="mt-4 flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto">
+        <section>
+            <div class="mb-3 flex items-center justify-between">
+                <h3 class="text-sm font-semibold uppercase tracking-wide text-slate-800">
+                    {{ activeTab() }}
+                </h3>
+
+                <button ncsButton variant="secondary" size="sm" type="button" (click)="copyCurrentCode()">
+                    <svg lucideCopy />
+                    Copy
+                </button>
+            </div>
+            <pre class="code-panel"><code [textContent]="currentCode()"></code></pre>
+        </section>
+    </div>
+</app-ncs-card>
